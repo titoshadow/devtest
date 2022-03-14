@@ -12,6 +12,8 @@ composer install
 cp .env.example .env
 ./vendor/bin/sail up -d 
 docker exec -it devtest-laravel.test-1 /bin/bash
+yarn install 
+npm run prod
 php artisan migrate --seed
 ```
 After issuing the last command, the app will retrieve the data and be ready to serve on
