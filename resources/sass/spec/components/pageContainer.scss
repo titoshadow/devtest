@@ -1,0 +1,53 @@
+// ---------------------------------------------------------
+// @TOC
+// ---------------------------------------------------------
+
+// + @Page Container
+// + @Main Content
+// + @Full Container
+// + @Collapsed State
+
+// ---------------------------------------------------------
+// @Page Container
+// ---------------------------------------------------------
+
+.page-container {
+  min-height: 100vh;
+  transition: all 0.2s ease;
+}
+
+// ---------------------------------------------------------
+// @Main Content
+// ---------------------------------------------------------
+
+.main-content {
+  padding: 20px 20px 20px;
+  min-height: calc(100vh - 2em);
+
+  @include to($breakpoint-md) {
+    padding: 20px 5px 5px;
+  }
+}
+
+.remain-height {
+  height: calc(100vh - 126px);
+}
+
+// ---------------------------------------------------------
+// @Full Container
+// ---------------------------------------------------------
+
+.full-container {
+  min-height: 100vh;
+  position: absolute;
+  right: 0;
+  transition: all 0.2s ease;
+
+  @include between($breakpoint-md, $breakpoint-xl) {
+    left: 0;
+  }
+
+  @include to($breakpoint-md) {
+    left: 0;
+  }
+}
