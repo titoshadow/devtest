@@ -2,7 +2,7 @@ import * as $ from 'jquery';
 import 'datatables';
 
 export default (function () {
-    let table = $('#table').DataTable({
+    $('#table').DataTable({
         language: {
             processing: "<i class='fa fa-refresh fa-spin' style='margin-left: 30%'></i><small> Loading ...</small>",
             emptyTable: "No data available :("
@@ -15,35 +15,29 @@ export default (function () {
         pagingType: 'numbers',
         order: [],
         ajax: {
-            url: "/",
+            url: "/api/",
             type: 'GET',
-            beforeSend: function () {
-                $('#reloadButton').addClass("disabled");
-            },
-            complete: function () {
-                $('#reloadButton').removeClass("disabled");
-            }
         },
         columns: [
             {
                 data: 'Title',
                 name: 'Title',
-                orderable: true
+                orderable: false
             },
             {
                 data: 'Link',
                 name: 'Link',
-                orderable: true
+                orderable: false
             },
             {
                 data: 'Address',
                 name: 'Address',
-                orderable: true
+                orderable: false
             },
             {
                 data: 'City',
                 name: 'City',
-                orderable: true
+                orderable: false
             },
             {
                 data: 'Image',

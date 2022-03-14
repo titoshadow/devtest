@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('homes', function (Blueprint $table) {
             $table->id();
-            $table->json('json_content');
+            $table->jsonb('json_content');
             $table->timestampTz('created_at')->useCurrent();
             $table->timestampTz('updated_at')->useCurrent()->onUpdate('CURRENT_TIMESTAMP');
             $table->timestampTz('deleted_at')->nullable();
