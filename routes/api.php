@@ -19,14 +19,17 @@ use Yajra\DataTables\Facades\DataTables;
 Route::get('/', function (Request $request) {
 
     $filtered = array();
-    $homesList = Home::skip($request->start)->take($request->length)->get();
+    $start = $request->start ?: 0;
+    $rows = $request->length ?: 0;
+
+    $homesList = Home::skip($start)->take($rows)->get();
 
     foreach ($homesList as $home) {
         $filtered[] = $home->json_content;
     }
 
     return DataTables::of($filtered)
-        ->setOffset($request->start)
+        ->setOffset($start)
         ->setTotalRecords(Home::count())
         ->addColumn('Title', function ($item) {
             return $item['Address'];
