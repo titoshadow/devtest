@@ -1,3 +1,3 @@
 <?php
 
-Route::get('/', 'App\Http\Controllers\HomesController@index')->name('table');
+Route::get('/', 'HomesController@index')->name('table');

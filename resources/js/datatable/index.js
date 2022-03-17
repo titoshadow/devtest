@@ -1,3 +1,5 @@
+// noinspection JSVoidFunctionReturnValueUsed
+
 import * as $ from 'jquery';
 import 'datatables';
 
@@ -15,7 +17,7 @@ export default (function () {
         pagingType: 'numbers',
         order: [],
         ajax: {
-            url: "/api/",
+            url: "/api",
             type: 'GET',
         },
         columns: [
@@ -27,7 +29,14 @@ export default (function () {
             {
                 data: 'Link',
                 name: 'Link',
-                orderable: false
+                orderable: false,
+                render: function(data){
+                    if(data){
+                        return '<td><span class="icon-holder"><a target="_blank" href="' + data + '" class="fa-solid fa-arrow-up-right-from-square c-blue-500"></a></span></td>';
+                    } else {
+                        return '<td><span class="icon-holder"><i class="fas fa-times c-red-500"></i></span></td>';
+                    }
+                }
             },
             {
                 data: 'Address',
@@ -43,7 +52,15 @@ export default (function () {
                 data: 'Image',
                 name: 'Image',
                 orderable: false,
-                searchable: false
+                searchable: false,
+                render: function(data){
+                    if(data){
+                        return '<td><span class="icon-holder"><a target="_blank" href="' + data + '" class="fa-solid fa-image c-blue-500"></a></span></td>';
+                    } else {
+                        return '<td><span class="icon-holder"><i class="fas fa-times c-red-500"></i></span></td>';
+
+                    }
+                }
             }
         ]
     });
